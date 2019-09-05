@@ -37,13 +37,21 @@ function _getStyleWithMediaQuery(
     [MediaRule.MaxWidth]: maxWidthStyle = {}
   } = rStyle;
 
-  const rStyleMediaQueries = {};
-  Object.entries(minWidthStyle).forEach(([minWidth, value]) => {
-    rStyleMediaQueries[`@media (min-width: ${minWidth}px)`] = value;
-  });
-  Object.entries(maxWidthStyle).forEach(([maxWidth, value]) => {
-    rStyleMediaQueries[`@media (max-width: ${maxWidth}px)`] = value;
-  });
+  let rStyleMediaQueries = {};
+  Object.keys(minWidthStyle)
+    // We have to sort the style assendly first, else different order will produce different results
+    .sort((a, b) => Number(a) - Number(b))
+    .forEach(minWidth => {
+      let value = minWidthStyle[minWidth];
+      rStyleMediaQueries[`@media (min-width: ${minWidth}px)`] = value;
+    });
+  Object.keys(maxWidthStyle)
+    // We have to sort the style descendingly first, else different order will produce different results
+    .sort((a, b) => Number(b) - Number(a))
+    .forEach(maxWidth => {
+      let value = maxWidthStyle[maxWidth];
+      rStyleMediaQueries[`@media (max-width: ${maxWidth}px)`] = value;
+    });
 
   return rStyleMediaQueries;
 }
@@ -57,7 +65,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
   let style = {};
 
   Object.keys(minWidthStyle)
-    // We have to sort the style ascendingly first, else different order will produce different results
+    // We have to sort the style ascendingly first, since object in JavaScript with number as key always get sorted
     .sort((a, b) => Number(a) - Number(b))
     .forEach(minWidth => {
       if (isWidthGreaterThanOrEqualTo(Number(minWidth))) {
@@ -67,7 +75,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
     });
 
   Object.keys(maxWidthStyle)
-    // We have to sort the style descendingly first, else different order will produce different results
+    // We have to sort the style descendingly first, since object in JavaScript with number as key always get sorted
     .sort((a, b) => Number(b) - Number(a))
     .forEach(maxWidth => {
       if (isWidthSmallerThanOrEqualTo(Number(maxWidth))) {
