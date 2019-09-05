@@ -1,8 +1,0 @@
-{
-  "short_name": "emotion-native-media-query",
-  "name": "emotion-native-media-query",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
