@@ -1,6 +1,6 @@
 import { Dimensions } from "react-native";
 import merge from "lodash.merge";
-import { RStyle } from "./types"
+import { RStyle } from "./types";
 
 export function isWidthGreaterThanOrEqualTo(breakpoint: number): boolean {
   const { width } = Dimensions.get("window");

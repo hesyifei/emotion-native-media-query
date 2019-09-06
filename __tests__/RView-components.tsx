@@ -1,10 +1,11 @@
+/* eslint-env jest */
 import * as React from "react";
 import { Text } from "react-native";
 import RView, {
   MediaRule,
   RMinWidthStyle,
   RMaxWidthStyle,
-  Style
+  Style,
 } from "../src";
 
 export const simpleRView = (
@@ -16,20 +17,20 @@ export const simpleRView = (
 export const maxWidthRView = (
   <RView
     style={{
-      backgroundColor: "black"
+      backgroundColor: "black",
     }}
     rStyle={{
       [MediaRule.MaxWidth]: {
         300: {
-          backgroundColor: "red"
+          backgroundColor: "red",
         },
         600: {
-          backgroundColor: "green"
+          backgroundColor: "green",
         },
         900: {
-          backgroundColor: "blue"
-        }
-      }
+          backgroundColor: "blue",
+        },
+      },
     }}
   />
 );
@@ -37,31 +38,31 @@ export const maxWidthRView = (
 export const maxWidthAndMinWidthRView = (
   <RView
     style={{
-      backgroundColor: "black"
+      backgroundColor: "black",
     }}
     rStyle={{
       [MediaRule.MaxWidth]: {
         300: {
-          backgroundColor: "red"
+          backgroundColor: "red",
         },
         600: {
-          backgroundColor: "green"
+          backgroundColor: "green",
         },
         900: {
-          backgroundColor: "blue"
-        }
+          backgroundColor: "blue",
+        },
       },
       [MediaRule.MinWidth]: {
         200: {
-          padding: 33
+          padding: 33,
         },
         500: {
-          padding: 66
+          padding: 66,
         },
         800: {
-          padding: 99
-        }
-      }
+          padding: 99,
+        },
+      },
     }}
   />
 );
@@ -75,7 +76,7 @@ function getComplexRMinWidthStyle(): RMinWidthStyle {
     },
     {
       backgroundColor: "#FFFF41",
-      position: "absolute"
+      position: "absolute",
     },
     {
       backgroundColor: "#008018",
@@ -83,17 +84,17 @@ function getComplexRMinWidthStyle(): RMinWidthStyle {
     },
     {
       backgroundColor: "#0000F9",
-      display: "flex"
+      display: "flex",
     },
     {
       backgroundColor: "#86007D",
       alignContent: "center",
-    }
+    },
   ];
 
   const rules: RMinWidthStyle = [];
   const gap = 45;
-  for (var i = 0; i <= gap * 500; i += gap) {
+  for (let i = 0; i <= gap * 500; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
   }
   return rules;
@@ -103,22 +104,22 @@ function getComplexRMaxWidthStyle(): RMaxWidthStyle {
   const baseRules: Style[] = [
     {
       borderColor: "#D60270",
-      flexDirection: "column"
+      flexDirection: "column",
     },
     {
       borderColor: "#0038A8",
       flexDirection: "row",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
     {
       borderColor: "#9B4F96",
-      flexDirection: "column-reverse"
-    }
+      flexDirection: "column-reverse",
+    },
   ];
 
   const rules: RMinWidthStyle = [];
   const gap = 90;
-  for (var i = 0; i <= gap * 400; i += gap) {
+  for (let i = 0; i <= gap * 400; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
   }
   return rules;
@@ -128,11 +129,11 @@ export const complexRView = (
   <RView
     style={{
       backgroundColor: "black",
-      borderColor: "white"
+      borderColor: "white",
     }}
     rStyle={{
       [MediaRule.MinWidth]: getComplexRMinWidthStyle(),
-      [MediaRule.MaxWidth]: getComplexRMaxWidthStyle()
+      [MediaRule.MaxWidth]: getComplexRMaxWidthStyle(),
     }}
   />
 );

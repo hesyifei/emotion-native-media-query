@@ -11,7 +11,7 @@ import {
   RStyle,
   RMinWidthStyle,
   RMaxWidthStyle,
-  Style
+  Style,
 } from "./types";
 import {
   isWidthGreaterThanOrEqualTo,
@@ -20,22 +20,22 @@ import {
 
 function _minWidthStyleForEach(
   minWidthStyle: RMinWidthStyle,
-  callback: (minWidth: number, style: Style) => void
-) {
+  callback: (minWidth: number, style: Style) => void,
+): void {
   Object.keys(minWidthStyle)
     // We have to sort the style ascendingly first,
     // else on native, different order will produce different results.
     .sort((a, b) => Number(a) - Number(b))
     .forEach(minWidth => {
-      let value = minWidthStyle[minWidth];
+      const value = minWidthStyle[minWidth];
       callback(Number(minWidth), value);
     });
 }
 
 function _maxWidthStyleForEach(
   maxWidthStyle: RMaxWidthStyle,
-  callback: (maxWidth: number, style: Style) => void
-) {
+  callback: (maxWidth: number, style: Style) => void,
+): void {
   Object.keys(maxWidthStyle)
     // We have to sort the style descendingly first,
     // else on web,
@@ -45,20 +45,20 @@ function _maxWidthStyleForEach(
     // - different order will produce different results.
     .sort((a, b) => Number(b) - Number(a))
     .forEach(maxWidth => {
-      let value = maxWidthStyle[maxWidth];
+      const value = maxWidthStyle[maxWidth];
       callback(Number(maxWidth), value);
     });
 }
 
 function _getStyleWithMediaQuery(
-  rStyle: RStyle
+  rStyle: RStyle,
 ): { [mediaQuery: string]: any } {
   const {
     [MediaRule.MinWidth]: minWidthStyle = {},
-    [MediaRule.MaxWidth]: maxWidthStyle = {}
+    [MediaRule.MaxWidth]: maxWidthStyle = {},
   } = rStyle;
 
-  let rStyleMediaQueries = {};
+  const rStyleMediaQueries = {};
   _minWidthStyleForEach(minWidthStyle, (minWidth, value) => {
     rStyleMediaQueries[`@media (min-width: ${minWidth}px)`] = value;
   });
@@ -72,7 +72,7 @@ function _getStyleWithMediaQuery(
 function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
   const {
     [MediaRule.MinWidth]: minWidthStyle = {},
-    [MediaRule.MaxWidth]: maxWidthStyle = {}
+    [MediaRule.MaxWidth]: maxWidthStyle = {},
   } = rStyle;
 
   let style = {};
@@ -120,7 +120,7 @@ const RView: React.FunctionComponent<RViewProps> = ({
       minWidth: 0,
       padding: 0,
       position: "relative",
-      zIndex: 0
+      zIndex: 0,
     };
 
     const rStyleMediaQueries = _getStyleWithMediaQuery(rStyle);
@@ -129,7 +129,7 @@ const RView: React.FunctionComponent<RViewProps> = ({
         css={{
           ...reactNativeWebViewStyle,
           ...defaultStyle,
-          ...rStyleMediaQueries
+          ...rStyleMediaQueries,
         }}
         {...remainingProps}
       />
@@ -140,7 +140,7 @@ const RView: React.FunctionComponent<RViewProps> = ({
       <NativeTag
         style={{
           ...defaultStyle,
-          ...responsiveStyle
+          ...responsiveStyle,
         }}
         {...remainingProps}
       />

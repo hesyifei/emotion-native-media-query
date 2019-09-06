@@ -4,12 +4,12 @@ import {
   RStyle,
   RMinWidthStyle,
   RMaxWidthStyle,
-  Style
+  Style,
 } from "./types";
 import {
   isWidthGreaterThanOrEqualTo,
   isWidthSmallerThanOrEqualTo,
-  mergeRStyle
+  mergeRStyle,
 } from "./helpers";
 
 export default RView;
@@ -22,5 +22,5 @@ export {
   Style,
   isWidthGreaterThanOrEqualTo,
   isWidthSmallerThanOrEqualTo,
-  mergeRStyle
+  mergeRStyle,
 };

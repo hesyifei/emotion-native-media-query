@@ -1,9 +1,11 @@
+/* eslint-env jest */
+/* eslint global-require: "off", import/no-unresolved: "off" */
 import renderer from "react-test-renderer";
 import {
   simpleRView,
   maxWidthRView,
   maxWidthAndMinWidthRView,
-  complexRView
+  complexRView,
 } from "./RView-components";
 
 const widthList: number[] = [
@@ -21,7 +23,7 @@ const widthList: number[] = [
   900,
   901,
   1000,
-  10000
+  10000,
 ];
 
 jest.mock("Dimensions");
@@ -29,14 +31,14 @@ jest.mock("Dimensions");
 describe("RView", () => {
   test("simple", () => {
     const component = renderer.create(simpleRView);
-    let tree = component.toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test.each(widthList)("simple MaxWidth with width %ipx", width => {
     require("Dimensions").__setDimensions(width, 736);
     const component = renderer.create(maxWidthRView);
-    let tree = component.toJSON();
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -45,18 +47,15 @@ describe("RView", () => {
     width => {
       require("Dimensions").__setDimensions(width, 736);
       const component = renderer.create(maxWidthAndMinWidthRView);
-      let tree = component.toJSON();
+      const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
-    }
+    },
   );
 
-  test.each(widthList)(
-    "complex with width %ipx",
-    width => {
-      require("Dimensions").__setDimensions(width, 736);
-      const component = renderer.create(complexRView);
-      let tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    }
-  );
+  test.each(widthList)("complex with width %ipx", width => {
+    require("Dimensions").__setDimensions(width, 736);
+    const component = renderer.create(complexRView);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
