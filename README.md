@@ -1,6 +1,6 @@
 # emotion-native-media-query
 
-> Add responsive support for @emotion/native. Supports both React Native (Expo) and React Native Web (Expo for Web), as well as server-side rendering with Next.js.
+> Add responsive support for [@emotion/native](https://emotion.sh/docs/@emotion/native). It supports both React Native (Expo) and React Native Web (Expo for Web), as well as server-side rendering with frameworks such as Next.js.
 
 [![NPM](https://img.shields.io/npm/v/emotion-native-media-query.svg)](https://www.npmjs.com/package/emotion-native-media-query)
 [![Build Status](https://travis-ci.com/hesyifei/emotion-native-media-query.svg?branch=master)](https://travis-ci.com/hesyifei/emotion-native-media-query)

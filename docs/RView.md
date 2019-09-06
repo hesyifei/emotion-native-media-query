@@ -6,6 +6,8 @@ This document lays out the current public properties and methods for `RView`.
 
 - [`style`](#style)
 - [`rStyle`](#rstyle)
+  - [`[MediaRule.MinWidth]`](#mediaruleminwidth)
+  - [`[MediaRule.MaxWidth]`](#mediarulemaxwidth)
 - [`WebTag`](#webtag)
 - [`NativeTag`](#nativetag)
 
@@ -17,7 +19,7 @@ This document lays out the current public properties and methods for `RView`.
 
 ### `style`
 
-The (default) style of the view. Only object is supported (i.e., `css` with string is not supported).
+The (default) style of the view. Only [object styles](https://emotion.sh/docs/object-styles) are supported (i.e., ` css`` ` with string is not supported).
 
 **Example:**
 
