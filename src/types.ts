@@ -10,7 +10,15 @@ export interface Style extends ViewStyle {
   [key: string]: any;
 };
 
+export interface RMinWidthStyle {
+  [minWidth: number]: Style;
+}
+
+export interface RMaxWidthStyle {
+  [maxWidth: number]: Style;
+}
+
 export interface RStyle {
-  [MediaRule.MinWidth]?: { [minWidth: number]: Style };
-  [MediaRule.MaxWidth]?: { [maxWidth: number]: Style };
+  [MediaRule.MinWidth]?: RMinWidthStyle;
+  [MediaRule.MaxWidth]?: RMaxWidthStyle;
 };
