@@ -1,4 +1,4 @@
-import RView from '../'
+import RView from '../src/'
 
 describe("RView", () => {
   it("is truthy", () => {
