@@ -4,7 +4,7 @@
  */
 
 import * as React from "react";
-import { View, Platform, Dimensions } from "react-native";
+import { View, Platform, Dimensions, ViewStyle } from "react-native";
 import { jsx } from "@emotion/core";
 import merge from "lodash.merge";
 
@@ -13,8 +13,11 @@ export enum MediaRule {
   MaxWidth
 }
 
-export type Style = { [key: string]: any };
-export type RStyle = {
+export interface Style extends ViewStyle {
+  // Allow arbitrary style too.
+  [key: string]: any;
+};
+export interface RStyle {
   [MediaRule.MinWidth]?: { [minWidth: number]: Style };
   [MediaRule.MaxWidth]?: { [maxWidth: number]: Style };
 };
@@ -88,7 +91,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
 }
 
 interface RViewProps {
-  WebTag?: string;
+  WebTag?: React.ElementType;
   NativeTag?: React.ElementType;
   style?: Style;
   rStyle?: RStyle;
@@ -104,7 +107,7 @@ const RView: React.FunctionComponent<RViewProps> = ({
 }) => {
   if (Platform.OS === "web") {
     // Partly based on https://github.com/necolas/react-native-web/blob/e810f1fd2b41293cb1efe04e332fb6f8d4bcca65/packages/react-native-web/src/exports/View/index.js#L80-L94
-    const reactNativeWebViewStyle = {
+    const reactNativeWebViewStyle: Style = {
       display: "flex",
       flexBasis: "auto",
       flexDirection: "column",
