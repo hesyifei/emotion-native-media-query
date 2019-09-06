@@ -2,7 +2,8 @@ import renderer from "react-test-renderer";
 import {
   simpleRView,
   maxWidthRView,
-  maxWidthAndMinWidthRView
+  maxWidthAndMinWidthRView,
+  complexRView
 } from "./RView-components";
 
 describe("RView", () => {
@@ -20,6 +21,12 @@ describe("RView", () => {
 
   test("simple MinWidth and MaxWidth", () => {
     const component = renderer.create(maxWidthAndMinWidthRView);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("complex", () => {
+    const component = renderer.create(complexRView);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

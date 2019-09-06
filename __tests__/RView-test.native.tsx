@@ -2,7 +2,8 @@ import renderer from "react-test-renderer";
 import {
   simpleRView,
   maxWidthRView,
-  maxWidthAndMinWidthRView
+  maxWidthAndMinWidthRView,
+  complexRView
 } from "./RView-components";
 
 const widthList: number[] = [
@@ -44,6 +45,16 @@ describe("RView", () => {
     width => {
       require("Dimensions").__setDimensions(width, 736);
       const component = renderer.create(maxWidthAndMinWidthRView);
+      let tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    }
+  );
+
+  test.each(widthList)(
+    "complex with width %ipx",
+    width => {
+      require("Dimensions").__setDimensions(width, 736);
+      const component = renderer.create(complexRView);
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     }

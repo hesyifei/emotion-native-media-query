@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RView complex 1`] = `
+<div
+  className="css-yc9cy0-RView"
+/>
+`;
+
 exports[`RView simple 1`] = `
 <div
   className="css-ou0oiu-RView"
