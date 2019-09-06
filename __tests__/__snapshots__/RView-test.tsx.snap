@@ -9,3 +9,153 @@ exports[`RView simple 1`] = `
   </Text>
 </View>
 `;
+
+exports[`RView simple responsive with width 1px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 100px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 299px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 300px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 301px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 450px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 599px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 600px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 601px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "blue",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 750px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "blue",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 899px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "blue",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 900px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "blue",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 901px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 1000px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+    }
+  }
+/>
+`;
+
+exports[`RView simple responsive with width 10000px 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+    }
+  }
+/>
+`;
