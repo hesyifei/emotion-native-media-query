@@ -4,33 +4,14 @@
  */
 
 import * as React from "react";
-import { View, Platform, Dimensions, ViewStyle } from "react-native";
+import { View, Platform, ViewProps } from "react-native";
 import { jsx } from "@emotion/core";
-import merge from "lodash.merge";
-
-export enum MediaRule {
-  MinWidth,
-  MaxWidth
-}
-
-export interface Style extends ViewStyle {
-  // Allow arbitrary style too.
-  [key: string]: any;
-};
-export interface RStyle {
-  [MediaRule.MinWidth]?: { [minWidth: number]: Style };
-  [MediaRule.MaxWidth]?: { [maxWidth: number]: Style };
-};
-
-export function isWidthGreaterThanOrEqualTo(breakpoint: number): boolean {
-  const { width } = Dimensions.get("window");
-  return width >= breakpoint;
-}
-
-export function isWidthSmallerThanOrEqualTo(breakpoint: number): boolean {
-  const { width } = Dimensions.get("window");
-  return width <= breakpoint;
-}
+import { MediaRule, RStyle, Style } from "./types";
+import {
+  isWidthGreaterThanOrEqualTo,
+  isWidthSmallerThanOrEqualTo,
+  mergeRStyle
+} from "./helpers";
 
 function _getStyleWithMediaQuery(
   rStyle: RStyle
@@ -67,6 +48,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
 
   let style = {};
 
+  // TODO: USE CUSTOM FOR EACH FUNCTION
   Object.keys(minWidthStyle)
     // We have to sort the style ascendingly first, since object in JavaScript with number as key always get sorted
     .sort((a, b) => Number(a) - Number(b))
@@ -90,11 +72,12 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
   return style;
 }
 
-interface RViewProps {
+interface RViewProps extends ViewProps {
   WebTag?: React.ElementType;
   NativeTag?: React.ElementType;
   style?: Style;
   rStyle?: RStyle;
+  // Allow arbitrary props too.
   [key: string]: any;
 }
 
@@ -146,6 +129,11 @@ const RView: React.FunctionComponent<RViewProps> = ({
 };
 export default RView;
 
-export function mergeRStyle(originalRStyle: RStyle, newRStyle: RStyle): RStyle {
-  return merge(originalRStyle, newRStyle);
-}
+export {
+  MediaRule,
+  RStyle,
+  Style,
+  isWidthGreaterThanOrEqualTo,
+  isWidthSmallerThanOrEqualTo,
+  mergeRStyle
+};
