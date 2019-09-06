@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RView simple 1`] = `
+<View
+  style={Object {}}
+>
+  <Text>
+    Hello world!
+  </Text>
+</View>
+`;
