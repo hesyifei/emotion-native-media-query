@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RView simple 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-ou0oiu-RView{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-basis:auto;-ms-flex-preferred-size:auto;flex-basis:auto;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin:0;min-height:0;min-width:0;padding:0;position:relative;z-index:0;}",
+      }
+    }
+    data-emotion-css="ou0oiu-RView"
+  />,
+  <div
+    className="css-ou0oiu-RView"
+  >
+    <div
+      className="css-text-901oao"
+      dir="auto"
+    >
+      Hello world!
+    </div>
+  </div>,
+]
+`;
+
+exports[`RView simple MaxWidth 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-e48uc2-RView{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-basis:auto;-ms-flex-preferred-size:auto;flex-basis:auto;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin:0;min-height:0;min-width:0;padding:0;position:relative;z-index:0;background-color:black;}@media (max-width:900px){.css-e48uc2-RView{background-color:blue;}}@media (max-width:600px){.css-e48uc2-RView{background-color:green;}}@media (max-width:300px){.css-e48uc2-RView{background-color:red;}}",
+      }
+    }
+    data-emotion-css="e48uc2-RView"
+  />,
+  <div
+    className="css-e48uc2-RView"
+  />,
+]
+`;
+
+exports[`RView simple MinWidth and MaxWidth 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-1f71vvb-RView{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-basis:auto;-ms-flex-preferred-size:auto;flex-basis:auto;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;margin:0;min-height:0;min-width:0;padding:0;position:relative;z-index:0;background-color:black;}@media (min-width:200px){.css-1f71vvb-RView{padding:33px;}}@media (min-width:500px){.css-1f71vvb-RView{padding:66px;}}@media (min-width:800px){.css-1f71vvb-RView{padding:99px;}}@media (max-width:900px){.css-1f71vvb-RView{background-color:blue;}}@media (max-width:600px){.css-1f71vvb-RView{background-color:green;}}@media (max-width:300px){.css-1f71vvb-RView{background-color:red;}}",
+      }
+    }
+    data-emotion-css="1f71vvb-RView"
+  />,
+  <div
+    className="css-1f71vvb-RView"
+  />,
+]
+`;

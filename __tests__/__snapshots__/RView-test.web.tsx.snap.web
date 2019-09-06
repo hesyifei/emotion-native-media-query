@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RView simple 1`] = `
+<div
+  className="css-ou0oiu-RView"
+>
+  <div
+    className="css-text-901oao"
+    dir="auto"
+  >
+    Hello world!
+  </div>
+</div>
+`;
+
+exports[`RView simple MaxWidth 1`] = `
+<div
+  className="css-e48uc2-RView"
+/>
+`;
+
+exports[`RView simple MinWidth and MaxWidth 1`] = `
+<div
+  className="css-1f71vvb-RView"
+/>
+`;
