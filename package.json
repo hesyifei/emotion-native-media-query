@@ -1,16 +1,23 @@
 {
   "name": "emotion-native-media-query",
   "version": "1.0.0",
-  "description": "Add responsive support for @emotion/native. Supports both React Native (Expo) and React Native Web (Expo for Web), as well as server-side rendering with Next.js.",
-  "author": "hesyifei",
+  "description": "Add responsive support for @emotion/native. It supports both React Native (Expo) and React Native Web (Expo for Web), as well as server-side rendering with frameworks such as Next.js.",
+  "author": {
+    "name": "Yifei He",
+    "email": "yifei@hesyifei.com",
+    "url": "https://www.hesyifei.com/"
+  },
   "license": "MIT",
-  "repository": "hesyifei/emotion-native-media-query",
+  "repository": "github:hesyifei/emotion-native-media-query",
+  "homepage": "https://github.com/hesyifei/emotion-native-media-query#readme",
+  "bugs": "https://github.com/hesyifei/emotion-native-media-query/issues",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
   "scripts": {
+    "pretest": "npm run build",
     "test": "jest",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
