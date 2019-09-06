@@ -1,6 +1,6 @@
 {
   "name": "emotion-native-media-query",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Add responsive support for @emotion/native. It supports both React Native (Expo) and React Native Web (Expo for Web), as well as server-side rendering with frameworks such as Next.js.",
   "author": {
     "name": "Yifei He",
