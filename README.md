@@ -15,7 +15,6 @@ npm install --save emotion-native-media-query
 
 ```tsx
 import * as React from "react";
-
 import RView, { MediaRule } from "emotion-native-media-query";
 
 class Example extends React.Component {
@@ -23,31 +22,31 @@ class Example extends React.Component {
     return (
       <RView
         style={{
-          backgroundColor: "black"
+          backgroundColor: "black",
         }}
         rStyle={{
           [MediaRule.MaxWidth]: {
             300: {
-              backgroundColor: "red"
+              backgroundColor: "red",
             },
             600: {
-              backgroundColor: "green"
+              backgroundColor: "green",
             },
             900: {
-              backgroundColor: "blue"
-            }
+              backgroundColor: "blue",
+            },
           },
           [MediaRule.MinWidth]: {
             200: {
-              padding: 33
+              padding: 33,
             },
             500: {
-              padding: 66
+              padding: 66,
             },
             800: {
-              padding: 99
-            }
-          }
+              padding: 99,
+            },
+          },
         }}
       />
     );
