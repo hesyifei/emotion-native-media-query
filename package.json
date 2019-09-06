@@ -51,10 +51,7 @@
     "typescript": "^3.6.2"
   },
   "jest": {
-    "preset": "jest-expo/universal",
-    "modulePathIgnorePatterns": [
-      "example"
-    ]
+    "preset": "jest-expo/universal"
   },
   "files": [
     "dist"
