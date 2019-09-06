@@ -36,6 +36,17 @@ class Example extends React.Component {
             900: {
               backgroundColor: "blue"
             }
+          },
+          [MediaRule.MinWidth]: {
+            200: {
+              padding: 33
+            },
+            500: {
+              padding: 66
+            },
+            800: {
+              padding: 99
+            }
           }
         }}
       />
