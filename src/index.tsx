@@ -88,8 +88,8 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
 }
 
 interface RViewProps {
-  WebTag?: string | React.ElementType;
-  NativeTag?: string | React.ElementType;
+  WebTag?: string;
+  NativeTag?: React.ElementType;
   style?: Style;
   rStyle?: RStyle;
   [key: string]: any;
