@@ -1,7 +1,9 @@
-import * as React from "react";
-import { Text } from "react-native";
 import renderer from "react-test-renderer";
-import RView, { MediaRule } from "../src";
+import {
+  simpleRView,
+  maxWidthRView,
+  maxWidthAndMinWidthRView
+} from "./RView-components";
 
 const widthList: number[] = [
   1,
@@ -25,75 +27,25 @@ jest.mock("Dimensions");
 
 describe("RView", () => {
   test("simple", () => {
-    const component = renderer.create(
-      <RView>
-        <Text>Hello world!</Text>
-      </RView>
-    );
+    const component = renderer.create(simpleRView);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test.each(widthList)("simple MaxWidth with width %ipx", width => {
     require("Dimensions").__setDimensions(width, 736);
-    const component = renderer.create(
-      <RView
-        style={{
-          backgroundColor: "black"
-        }}
-        rStyle={{
-          [MediaRule.MaxWidth]: {
-            300: {
-              backgroundColor: "red"
-            },
-            600: {
-              backgroundColor: "green"
-            },
-            900: {
-              backgroundColor: "blue"
-            }
-          }
-        }}
-      />
-    );
+    const component = renderer.create(maxWidthRView);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  test.each(widthList)("simple MinWidth and MaxWidth with width %ipx", width => {
-    require("Dimensions").__setDimensions(width, 736);
-    const component = renderer.create(
-      <RView
-        style={{
-          backgroundColor: "black"
-        }}
-        rStyle={{
-          [MediaRule.MaxWidth]: {
-            300: {
-              backgroundColor: "red"
-            },
-            600: {
-              backgroundColor: "green"
-            },
-            900: {
-              backgroundColor: "blue"
-            }
-          },
-          [MediaRule.MinWidth]: {
-            200: {
-              padding: 33
-            },
-            500: {
-              padding: 66
-            },
-            800: {
-              padding: 99
-            }
-          }
-        }}
-      />
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  test.each(widthList)(
+    "simple MinWidth and MaxWidth with width %ipx",
+    width => {
+      require("Dimensions").__setDimensions(width, 736);
+      const component = renderer.create(maxWidthAndMinWidthRView);
+      let tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    }
+  );
 });
