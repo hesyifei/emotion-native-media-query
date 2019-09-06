@@ -16,7 +16,6 @@ import {
 import {
   isWidthGreaterThanOrEqualTo,
   isWidthSmallerThanOrEqualTo,
-  mergeRStyle
 } from "./helpers";
 
 function _minWidthStyleForEach(
@@ -149,14 +148,3 @@ const RView: React.FunctionComponent<RViewProps> = ({
   }
 };
 export default RView;
-
-export {
-  MediaRule,
-  RStyle,
-  RMinWidthStyle,
-  RMaxWidthStyle,
-  Style,
-  isWidthGreaterThanOrEqualTo,
-  isWidthSmallerThanOrEqualTo,
-  mergeRStyle
-};
