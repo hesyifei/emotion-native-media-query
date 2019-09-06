@@ -54,6 +54,8 @@ class Example extends React.Component {
 }
 ```
 
+For more, read the [API Reference for `RView`](./docs/RView.md).
+
 ## License
 
 MIT © [hesyifei](https://github.com/hesyifei)
