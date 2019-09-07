@@ -1,12 +1,7 @@
 /* eslint-env jest */
 import * as React from "react";
 import { Text } from "react-native";
-import RView, {
-  MediaRule,
-  RMinWidthStyle,
-  RMaxWidthStyle,
-  Style,
-} from "../src";
+import RView, { MediaRule, Style } from "../src";
 
 export const simpleRView = (
   <RView>
@@ -67,7 +62,7 @@ export const maxWidthAndMinWidthRView = (
   />
 );
 
-function getComplexRMinWidthStyle(): RMinWidthStyle {
+export function getComplexRWidthStyle1(): { [width: number]: Style } {
   const baseRules: Style[] = [
     {
       backgroundColor: "#FFA52C",
@@ -92,7 +87,7 @@ function getComplexRMinWidthStyle(): RMinWidthStyle {
     },
   ];
 
-  const rules: RMinWidthStyle = [];
+  const rules = [];
   const gap = 45;
   for (let i = 0; i <= gap * 500; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
@@ -100,7 +95,7 @@ function getComplexRMinWidthStyle(): RMinWidthStyle {
   return rules;
 }
 
-function getComplexRMaxWidthStyle(): RMaxWidthStyle {
+export function getComplexRWidthStyle2(): { [width: number]: Style } {
   const baseRules: Style[] = [
     {
       borderColor: "#D60270",
@@ -117,7 +112,7 @@ function getComplexRMaxWidthStyle(): RMaxWidthStyle {
     },
   ];
 
-  const rules: RMinWidthStyle = [];
+  const rules = [];
   const gap = 90;
   for (let i = 0; i <= gap * 400; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
@@ -132,8 +127,8 @@ export const complexRView = (
       borderColor: "white",
     }}
     rStyle={{
-      [MediaRule.MinWidth]: getComplexRMinWidthStyle(),
-      [MediaRule.MaxWidth]: getComplexRMaxWidthStyle(),
+      [MediaRule.MinWidth]: getComplexRWidthStyle1(),
+      [MediaRule.MaxWidth]: getComplexRWidthStyle2(),
     }}
   />
 );
