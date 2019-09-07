@@ -87,7 +87,7 @@ export function getComplexRWidthStyle1(): { [width: number]: Style } {
     },
   ];
 
-  const rules = [];
+  const rules = {};
   const gap = 45;
   for (let i = 0; i <= gap * 500; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
@@ -112,7 +112,7 @@ export function getComplexRWidthStyle2(): { [width: number]: Style } {
     },
   ];
 
-  const rules = [];
+  const rules = {};
   const gap = 90;
   for (let i = 0; i <= gap * 400; i += gap) {
     rules[i] = baseRules[(i / gap) % baseRules.length];
