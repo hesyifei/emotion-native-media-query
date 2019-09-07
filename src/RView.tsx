@@ -4,7 +4,7 @@
  */
 
 import * as React from "react";
-import { View, Platform, ViewProps } from "react-native";
+import { View, Platform, Dimensions, ViewProps } from "react-native";
 import { jsx } from "@emotion/core";
 import {
   MediaRule,
@@ -135,7 +135,19 @@ const RView: React.FunctionComponent<RViewProps> = ({
       />
     );
   } else {
-    const responsiveStyle = _getFlattenedStyleForCurrentScreen(rStyle);
+    const [responsiveStyle, setResponsiveStyle]: [Style, any] = React.useState(
+      _getFlattenedStyleForCurrentScreen(rStyle),
+    );
+    React.useEffect(() => {
+      const updateStyle = (): void =>
+        setResponsiveStyle(_getFlattenedStyleForCurrentScreen(rStyle));
+
+      Dimensions.addEventListener("change", updateStyle);
+      return () => {
+        Dimensions.removeEventListener("change", updateStyle);
+      };
+    }, []); // `[]` here is important so that we don't have to reapply this effect every re-render.
+
     return (
       <NativeTag
         style={{

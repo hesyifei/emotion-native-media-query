@@ -30,14 +30,20 @@ jest.mock("Dimensions");
 
 describe("RView", () => {
   test("simple", () => {
-    const component = renderer.create(simpleRView);
+    let component;
+    renderer.act(() => {
+      component = renderer.create(simpleRView);
+    });
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test.each(widthList)("simple MaxWidth with width %ipx", width => {
     require("Dimensions").__setDimensions(width, 736);
-    const component = renderer.create(maxWidthRView);
+    let component;
+    renderer.act(() => {
+      component = renderer.create(maxWidthRView);
+    });
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -46,7 +52,10 @@ describe("RView", () => {
     "simple MinWidth and MaxWidth with width %ipx",
     width => {
       require("Dimensions").__setDimensions(width, 736);
-      const component = renderer.create(maxWidthAndMinWidthRView);
+      let component;
+      renderer.act(() => {
+        component = renderer.create(maxWidthAndMinWidthRView);
+      });
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     },
@@ -54,7 +63,10 @@ describe("RView", () => {
 
   test.each(widthList)("complex with width %ipx", width => {
     require("Dimensions").__setDimensions(width, 736);
-    const component = renderer.create(complexRView);
+    let component;
+    renderer.act(() => {
+      component = renderer.create(complexRView);
+    });
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
