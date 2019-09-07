@@ -56,6 +56,34 @@ class Example extends React.Component {
 
 For more, read the [API Reference for `RView`](./docs/RView.md).
 
+Note that in the native app, to make sure the components will resize correspondingly when the size of the screen changes (e.g., the user rotates the device), you should also add a `"change"` listener to `Dimensions` which `forceUpdate()` the component:
+
+```tsx
+export default class App extends React.Component {
+  forceUpdateComponents = () => this.forceUpdate();
+
+  componentDidMount() {
+    if (Platform.OS !== "web") {
+      // We do `forceUpdate` so that responsive properties can be properly
+      // updated in the native app.
+      // We only add it when the platform is not web because on web, we use
+      // media query.
+      Dimensions.addEventListener("change", this.forceUpdateComponents);
+    }
+  }
+
+  componentWillUnmount() {
+    if (Platform.OS !== "web") {
+      Dimensions.removeEventListener("change", this.forceUpdateComponents);
+    }
+  }
+
+  render() {
+    return <RView {/* ... */} />;
+  }
+}
+```
+
 ## License
 
 MIT © [hesyifei](https://github.com/hesyifei)
