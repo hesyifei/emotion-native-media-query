@@ -1,20 +1,20 @@
+/* eslint-env jest */
 // https://jestjs.io/docs/en/manual-mocks
 
-'use strict';
+const Dimensions: any = jest.genMockFromModule("Dimensions");
 
 let _width = 414;
 let _height = 736;
-function __setDimensions(width, height) {
+function __setDimensions(width: number, height: number): void {
   _width = width;
   _height = height;
 }
 
-function get() {
+function get(): any {
   return { width: _width, height: _height };
 }
 
-const Dimensions = jest.fn();
 Dimensions.__setDimensions = __setDimensions;
 Dimensions.get = get;
 
-module.exports = Dimensions
+module.exports = Dimensions;
