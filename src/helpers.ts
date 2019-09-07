@@ -12,9 +12,8 @@ export function isWidthSmallerThanOrEqualTo(breakpoint: number): boolean {
   return width <= breakpoint;
 }
 
-export function mergeRStyle(
-  originalRStyle: RStyle = {},
-  newRStyle: RStyle = {},
-): RStyle {
-  return merge(originalRStyle, newRStyle);
+export function mergeRStyle(originalRStyle: RStyle, newRStyle: RStyle): RStyle {
+  // We have to clone the object since `merge` will mutate the object.
+  const _originalRStyle = JSON.parse(JSON.stringify(originalRStyle || {}));
+  return merge(_originalRStyle, newRStyle);
 }
