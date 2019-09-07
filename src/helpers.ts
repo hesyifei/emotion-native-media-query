@@ -12,6 +12,9 @@ export function isWidthSmallerThanOrEqualTo(breakpoint: number): boolean {
   return width <= breakpoint;
 }
 
-export function mergeRStyle(originalRStyle: RStyle, newRStyle: RStyle): RStyle {
+export function mergeRStyle(
+  originalRStyle: RStyle = {},
+  newRStyle: RStyle = {},
+): RStyle {
   return merge(originalRStyle, newRStyle);
 }
