@@ -1,4 +1,4 @@
-import RView from "./RView";
+import RView, { RViewProps } from "./RView";
 import {
   MediaRule,
   RStyle,
@@ -15,6 +15,7 @@ import {
 export default RView;
 
 export {
+  RViewProps,
   MediaRule,
   RStyle,
   RMinWidthStyle,

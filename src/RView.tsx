@@ -92,7 +92,7 @@ function _getFlattenedStyleForCurrentScreen(rStyle: RStyle): Style {
   return style;
 }
 
-interface RViewProps extends ViewProps {
+export interface RViewProps extends ViewProps {
   WebTag?: React.ElementType;
   NativeTag?: React.ElementType;
   style?: Style;
