@@ -1,5 +1,9 @@
 /* eslint-env jest */
 import { mergeRStyle, MediaRule, RStyle } from "../src";
+import {
+  getComplexRWidthStyle1,
+  getComplexRWidthStyle2,
+} from "./RView-components";
 
 describe("mergeRStyle", () => {
   test("not mutated", () => {
@@ -90,6 +94,28 @@ describe("mergeRStyle", () => {
           backgroundColor: "blue",
         },
       },
+    };
+    expect(mergeRStyle(rStyle1, rStyle2)).toMatchSnapshot();
+    expect(mergeRStyle(rStyle2, rStyle1)).toMatchSnapshot();
+  });
+
+  test("unrelated large number of rules", () => {
+    const rStyle1: RStyle = {
+      [MediaRule.MinWidth]: getComplexRWidthStyle1(),
+    };
+    const rStyle2: RStyle = {
+      [MediaRule.MaxWidth]: getComplexRWidthStyle2(),
+    };
+    expect(mergeRStyle(rStyle1, rStyle2)).toMatchSnapshot();
+    expect(mergeRStyle(rStyle2, rStyle1)).toMatchSnapshot();
+  });
+
+  test("related large number of rules", () => {
+    const rStyle1: RStyle = {
+      [MediaRule.MaxWidth]: getComplexRWidthStyle1(),
+    };
+    const rStyle2: RStyle = {
+      [MediaRule.MaxWidth]: getComplexRWidthStyle2(),
     };
     expect(mergeRStyle(rStyle1, rStyle2)).toMatchSnapshot();
     expect(mergeRStyle(rStyle2, rStyle1)).toMatchSnapshot();
