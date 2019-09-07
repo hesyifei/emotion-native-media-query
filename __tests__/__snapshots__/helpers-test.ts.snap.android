@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mergeRStyle deep merge - override 1`] = `
+Object {
+  "0": Object {
+    "600": Object {
+      "backgroundColor": "blue",
+    },
+  },
+}
+`;
+
+exports[`mergeRStyle deep merge - override 2`] = `
+Object {
+  "0": Object {
+    "600": Object {
+      "backgroundColor": "red",
+    },
+  },
+}
+`;
+
+exports[`mergeRStyle deep merge 1`] = `
+Object {
+  "0": Object {
+    "600": Object {
+      "backgroundColor": "red",
+      "padding": 5,
+    },
+  },
+}
+`;
+
+exports[`mergeRStyle empty 1`] = `
+Object {
+  "0": Object {
+    "600": Object {
+      "backgroundColor": "red",
+    },
+  },
+}
+`;
+
+exports[`mergeRStyle simple 1`] = `
+Object {
+  "0": Object {
+    "600": Object {
+      "backgroundColor": "red",
+    },
+  },
+  "1": Object {
+    "800": Object {
+      "padding": 5,
+    },
+  },
+}
+`;
