@@ -574,3 +574,11 @@ exports[`RView simple MinWidth and MaxWidth with width 10000px 1`] = `
   }
 />
 `;
+
+exports[`RView simple with NativeTag 1`] = `
+<Text
+  style={Object {}}
+>
+  Hello world!
+</Text>
+`;

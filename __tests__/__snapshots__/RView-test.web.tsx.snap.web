@@ -30,3 +30,11 @@ exports[`RView simple MinWidth and MaxWidth 1`] = `
   className="css-1f71vvb-RView"
 />
 `;
+
+exports[`RView simple with WebTag 1`] = `
+<p
+  className="css-ou0oiu-RView"
+>
+  Hello world!
+</p>
+`;

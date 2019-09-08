@@ -9,6 +9,12 @@ export const simpleRView = (
   </RView>
 );
 
+export const simpleRViewWithWebTagAndNativeTag = (
+  <RView WebTag="p" NativeTag={Text}>
+    Hello world!
+  </RView>
+);
+
 export const maxWidthRView = (
   <RView
     style={{

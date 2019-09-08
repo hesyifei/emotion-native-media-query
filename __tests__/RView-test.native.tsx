@@ -4,6 +4,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 import {
   simpleRView,
+  simpleRViewWithWebTagAndNativeTag,
   maxWidthRView,
   maxWidthAndMinWidthRView,
   complexRView,
@@ -33,6 +34,15 @@ describe("RView", () => {
     let component;
     renderer.act(() => {
       component = renderer.create(simpleRView);
+    });
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("simple with NativeTag", () => {
+    let component;
+    renderer.act(() => {
+      component = renderer.create(simpleRViewWithWebTagAndNativeTag);
     });
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
