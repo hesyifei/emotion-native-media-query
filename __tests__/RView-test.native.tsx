@@ -26,8 +26,6 @@ const widthList: number[] = [
   10000,
 ];
 
-jest.mock("Dimensions");
-
 describe("RView", () => {
   test("simple", () => {
     let component;
@@ -39,9 +37,9 @@ describe("RView", () => {
   });
 
   test.each(widthList)("simple MaxWidth with width %ipx", width => {
-    require("Dimensions").__setDimensions(width, 736);
     let component;
     renderer.act(() => {
+      require("Dimensions").set({ window: { width, height: 736 } });
       component = renderer.create(maxWidthRView);
     });
     const tree = component.toJSON();
@@ -51,9 +49,9 @@ describe("RView", () => {
   test.each(widthList)(
     "simple MinWidth and MaxWidth with width %ipx",
     width => {
-      require("Dimensions").__setDimensions(width, 736);
       let component;
       renderer.act(() => {
+        require("Dimensions").set({ window: { width, height: 736 } });
         component = renderer.create(maxWidthAndMinWidthRView);
       });
       const tree = component.toJSON();
@@ -62,9 +60,9 @@ describe("RView", () => {
   );
 
   test.each(widthList)("complex with width %ipx", width => {
-    require("Dimensions").__setDimensions(width, 736);
     let component;
     renderer.act(() => {
+      require("Dimensions").set({ window: { width, height: 736 } });
       component = renderer.create(complexRView);
     });
     const tree = component.toJSON();
