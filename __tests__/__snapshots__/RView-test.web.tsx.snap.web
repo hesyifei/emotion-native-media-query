@@ -2,13 +2,13 @@
 
 exports[`RView complex 1`] = `
 <div
-  className="css-yc9cy0-RView"
+  className="css-1lt6956-RView"
 />
 `;
 
 exports[`RView simple 1`] = `
 <div
-  className="css-ou0oiu-RView"
+  className="css-sbd6nj-RView"
 >
   <div
     className="css-text-901oao"
@@ -21,19 +21,19 @@ exports[`RView simple 1`] = `
 
 exports[`RView simple MaxWidth 1`] = `
 <div
-  className="css-e48uc2-RView"
+  className="css-1gbe3j8-RView"
 />
 `;
 
 exports[`RView simple MinWidth and MaxWidth 1`] = `
 <div
-  className="css-1f71vvb-RView"
+  className="css-dxwuu7-RView"
 />
 `;
 
 exports[`RView simple with WebTag 1`] = `
 <p
-  className="css-ou0oiu-RView"
+  className="css-sbd6nj-RView"
 >
   Hello world!
 </p>

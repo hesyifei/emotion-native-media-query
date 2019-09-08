@@ -109,8 +109,11 @@ const RView: React.FunctionComponent<RViewProps> = ({
   ...remainingProps
 }) => {
   if (Platform.OS === "web") {
-    // Partly based on https://github.com/necolas/react-native-web/blob/e810f1fd2b41293cb1efe04e332fb6f8d4bcca65/packages/react-native-web/src/exports/View/index.js#L80-L94
+    // From https://github.com/necolas/react-native-web/blob/e810f1fd2b41293cb1efe04e332fb6f8d4bcca65/packages/react-native-web/src/exports/View/index.js#L80-L94
     const reactNativeWebViewStyle: Style = {
+      alignItems: "stretch",
+      border: "0 solid black",
+      boxSizing: "border-box",
       display: "flex",
       flexBasis: "auto",
       flexDirection: "column",
