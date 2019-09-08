@@ -32,9 +32,9 @@ exports[`RView simple MinWidth and MaxWidth 1`] = `
 `;
 
 exports[`RView simple with WebTag 1`] = `
-<p
+<section
   className="css-sbd6nj-RView"
 >
   Hello world!
-</p>
+</section>
 `;

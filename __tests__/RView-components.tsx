@@ -10,7 +10,7 @@ export const simpleRView = (
 );
 
 export const simpleRViewWithWebTagAndNativeTag = (
-  <RView WebTag="p" NativeTag={Text}>
+  <RView WebTag="section" NativeTag={Text}>
     Hello world!
   </RView>
 );

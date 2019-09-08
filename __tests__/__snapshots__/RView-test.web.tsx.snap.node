@@ -81,10 +81,10 @@ Array [
     }
     data-emotion-css="sbd6nj-RView"
   />,
-  <p
+  <section
     className="css-sbd6nj-RView"
   >
     Hello world!
-  </p>,
+  </section>,
 ]
 `;
